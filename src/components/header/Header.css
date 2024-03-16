@@ -1,0 +1,29 @@
+.header {
+    padding: 8px 16px;
+    background-color: #ffffff;
+    height: 70px;
+    display: flex;
+    box-sizing: border-box;
+    align-items: center;
+}
+
+.burger-icon {
+    font-size: 24px;
+}
+
+.icon-background {
+    display: flex;
+    border-radius: 12px;
+    width: 36px;
+    height: 36px;
+    background-color: #fde2c4;
+    align-items: center;
+    justify-content: center;
+}
+
+.icon-background:hover {
+    cursor: pointer;
+    background-color: #FF7C00;
+    color: white;
+    transition: 0.2s
+}

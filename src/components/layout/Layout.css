@@ -1,0 +1,44 @@
+.main {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    max-width: 100%;
+    height: 100%;
+}
+
+.navbar-container {
+}
+
+.sidebar-container {
+    width: 248px;
+    transition: width 0.3s ease;
+}
+
+.sidebar-container.closed {
+    width: 0;
+    overflow: hidden;
+}
+
+.main-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.content-container {
+    display: flex;
+    background-color: #ffffff;
+    height: 100%;
+    width: 100%;
+}
+
+.content {
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+    margin-right: 16px;
+    padding: 16px;
+    background-color: #f4f3ef;
+    width: 100%;
+    /*height: 100%;*/
+}
