@@ -1,6 +1,6 @@
 import './Sidebar.css';
-import {List, ListItem, ListItemContent} from "@mui/joy";
-import {Link} from "react-router-dom"; // Import the CSS file for styling
+import {List, ListItem, ListItemText} from "@mui/material";
+import {Link} from "react-router-dom";
 import fullLogo from "../../assets/logo_z_tekstem.png"
 
 function Sidebar() {
@@ -16,41 +16,49 @@ function Sidebar() {
                     <div className={"list-item-wrapper"}>
                         <Link to={"/"}>
                             <ListItem>
-                                <i className="bi bi-house"></i>
-                                <ListItemContent>Dashboard</ListItemContent>
+                                <i className="bi bi-house icon"></i>
+                                <ListItemText>Dashboard</ListItemText>
                             </ListItem>
                         </Link>
                     </div>
                     <div className={"list-item-wrapper"}>
                         <ListItem>
-                            <i className="bi bi-qr-code"></i>
-                            <ListItemContent>QR Codes</ListItemContent>
+                            <i className="bi bi-qr-code icon"></i>
+                            <ListItemText>QR Codes</ListItemText>
                         </ListItem>
                     </div>
                     <div className={"list-item-wrapper"}>
                         <Link to={"/menu-management"}>
                             <ListItem>
-                                <i className="bi bi-book"></i>
-                                <ListItemContent>Menu Management</ListItemContent>
+                                <i className="bi bi-book icon"></i>
+                                <ListItemText>Menu Management</ListItemText>
+                            </ListItem>
+                        </Link>
+                    </div>
+                    <div className={"list-item-wrapper"}>
+                        <Link to={"/menu-management"}>
+                            <ListItem>
+                                <i className="bi bi-book icon"></i>
+                                <ListItemText>Category Management</ListItemText>
                             </ListItem>
                         </Link>
                     </div>
                     <div className={"list-item-wrapper"}>
                         <ListItem>
-                            <i className="bi bi-book"></i>
-                            <ListItemContent>Table Management</ListItemContent>
+                            <i className="bi bi-book icon"></i>
+                            <ListItemText>Table Management</ListItemText>
                         </ListItem>
                     </div>
                     <div className={"list-item-wrapper"}>
                         <ListItem>
-                            <i className="bi bi-bag"></i>
-                            <ListItemContent>Orders</ListItemContent>
+                            <i className="bi bi-bag icon"></i>
+                            <ListItemText>Orders</ListItemText>
                         </ListItem>
                     </div>
                     <div className={"list-item-wrapper"}>
                         <ListItem>
-                            <i className="bi bi-person"></i>
-                            <ListItemContent>Staff</ListItemContent>
+                            <i className="bi bi-person icon"></i>
+                            <ListItemText>Staff</ListItemText>
                         </ListItem>
                     </div>
                 </List>
