@@ -36,7 +36,7 @@ function Sidebar() {
                         </Link>
                     </div>
                     <div className={"list-item-wrapper"}>
-                        <Link to={"/menu-management"}>
+                        <Link to={"/category-management"}>
                             <ListItem>
                                 <i className="bi bi-book icon"></i>
                                 <ListItemText>Category Management</ListItemText>

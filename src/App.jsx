@@ -4,7 +4,7 @@ import Layout from "./components/layout/Layout.jsx";
 import MenuItemManagement from "./pages/MenuItemManagement/MenuItemManagement.jsx";
 import Dashboard from "./pages/Dashboard/Dashboard.jsx";
 import {createTheme, ThemeProvider} from "@mui/material";
-import AddMenuItemPopup from "./pages/MenuItemManagement/AddMenuItem/AddMenuItemPopup.jsx";
+import CategoryManagement from "./pages/CategoryManagement/CategoryManagement.jsx";
 
 function App() {
 
@@ -29,7 +29,7 @@ function App() {
                 <Route path={"/"} element={<Layout/>}>
                     <Route path={"/"} element={<Dashboard/>}/>
                     <Route path={"/menu-management"} element={<MenuItemManagement/>}/>
-                    <Route path={"/menu-management/add-menu-item"} element={<AddMenuItemPopup/>}/>
+                    <Route path={"/category-management"} element={<CategoryManagement/>}/>
                 </Route>
             </Routes>
         </ThemeProvider>
