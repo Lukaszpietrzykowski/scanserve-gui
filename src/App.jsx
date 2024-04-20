@@ -5,6 +5,14 @@ import MenuItemManagement from "./pages/MenuItemManagement/MenuItemManagement.js
 import Dashboard from "./pages/Dashboard/Dashboard.jsx";
 import {createTheme, ThemeProvider} from "@mui/material";
 import CategoryManagement from "./pages/CategoryManagement/CategoryManagement.jsx";
+import QRCodes from "./pages/QRCodes/QRCodes.jsx";
+import TableManagement from "./pages/TableManagement/TableManagement.jsx";
+import '@fontsource/roboto/300.css';
+import '@fontsource/roboto/400.css';
+import '@fontsource/roboto/500.css';
+import '@fontsource/roboto/700.css';
+import ScanServeMenu from "./pages/Menu/ScanServeMenu.jsx";
+import Orders from "./pages/Orders/Orders.jsx";
 
 function App() {
 
@@ -30,7 +38,12 @@ function App() {
                     <Route path={"/"} element={<Dashboard/>}/>
                     <Route path={"/menu-management"} element={<MenuItemManagement/>}/>
                     <Route path={"/category-management"} element={<CategoryManagement/>}/>
+                    <Route path={"/qr-codes"} element={<QRCodes/>}/>
+                    <Route path={"/table-management"} element={<TableManagement/>}/>
+                    <Route path={"/menu"} element={<ScanServeMenu/>}/>
+                    <Route path={"/orders"} element={<Orders/>}/>
                 </Route>
+                <Route path={"/mobile"}/>
             </Routes>
         </ThemeProvider>
     )

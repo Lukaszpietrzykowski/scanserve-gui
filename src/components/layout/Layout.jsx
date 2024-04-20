@@ -14,7 +14,7 @@ function Layout() {
     return (
         <div className="main">
             <div className={`sidebar-container ${isSidebarOpen ? 'open' : 'closed'}`}>
-                <Sidebar/>
+                <Sidebar isSidebarOpen={isSidebarOpen}/>
             </div>
             <div className="main-container">
                 <div className="navbar-container">
