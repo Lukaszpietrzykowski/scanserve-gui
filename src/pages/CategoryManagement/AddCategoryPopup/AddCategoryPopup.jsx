@@ -90,9 +90,9 @@ function AddCategoryPopup({isOpen, onClose, onSubmit, isEditMode, categoryId}) {
                             />
                         </div>
                         <div className={"form-buttons"}>
-                            <Button sx={{marginLeft: '20px', width: "80px"}} variant="contained" disableElevation
+                            <Button sx={{marginLeft: '20px', width: "80px"}} color={"error"}  variant="contained" disableElevation
                                     onClick={clearFormData}>Close</Button>
-                            <Button sx={{marginLeft: '20px', width: "80px"}} variant="contained" disableElevation
+                            <Button sx={{marginLeft: '20px', width: "80px"}}  color={"success"} variant="contained" disableElevation
                                     type="submit">{isEditMode ? "Save" : "Add"}</Button>
                         </div>
                     </form>
