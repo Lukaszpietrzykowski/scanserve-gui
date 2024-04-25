@@ -23,17 +23,24 @@ function Sidebar({isSidebarOpen}) {
                             </ListItem>
                         </div>
                     </Link>
+                    <Link to={"/menu-management"}>
+                        <div className={"list-item-wrapper"}>
+                            <ListItem>
+                                <i className="bi bi-book icon"></i>
+                                <ListItemText>Menu Management</ListItemText>
+                            </ListItem>
+                        </div>
+                    </Link>
                     <Link to={"/menu"}>
                         <div className={"list-item-wrapper"}>
                             <ListItem>
                                 <i className="bi bi-book icon"></i>
-                                <ListItemText>Menu</ListItemText>
+                                <ListItemText>Menu Preview</ListItemText>
                             </ListItem>
                         </div>
                     </Link>
-                    <Link to={"/menu-management"}>
+                    <Link to={"/menu-item-management"}>
                         <div className={"list-item-wrapper"}>
-
                             <ListItem>
                                 <i className="bi bi-book icon"></i>
                                 <ListItemText>Menu Item Management</ListItemText>

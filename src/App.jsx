@@ -13,6 +13,7 @@ import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
 import ScanServeMenu from "./pages/Menu/ScanServeMenu.jsx";
 import Orders from "./pages/Orders/Orders.jsx";
+import MenuManagement from "./pages/MenuManagement/MenuManagement.jsx";
 
 function App() {
 
@@ -36,7 +37,8 @@ function App() {
             <Routes>
                 <Route path={"/"} element={<Layout/>}>
                     <Route path={"/"} element={<Dashboard/>}/>
-                    <Route path={"/menu-management"} element={<MenuItemManagement/>}/>
+                    <Route path={"/menu-item-management"} element={<MenuItemManagement/>}/>
+                    <Route path={"/menu-management"} element={<MenuManagement/>}/>
                     <Route path={"/category-management"} element={<CategoryManagement/>}/>
                     <Route path={"/qr-codes"} element={<QRCodes/>}/>
                     <Route path={"/table-management"} element={<TableManagement/>}/>

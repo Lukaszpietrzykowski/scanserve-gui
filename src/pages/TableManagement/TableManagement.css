@@ -63,3 +63,35 @@
     margin: 8px 0;
     color: black;
 }
+
+/*style dla popup*/
+.table-form-inputs {
+    gap: 16px;
+    width: 60%;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+}
+
+.form-buttons {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 16px;
+}
+
+.popup-form-container {
+    display: flex;
+}
+
+.qr-code-container {
+    width: 40%;
+    display: flex;
+    padding: 24px 16px 16px;
+    flex-direction: column;
+    align-items: center;
+}
+
+.qr-code-box {
+    background-color: red;
+}

@@ -1,20 +1,17 @@
 import React from 'react';
-import './Popup.css'; // You may need to create this CSS file for styling
+import './Popup.css'; //
 
-function Popup({isOpen, onClose, mode, children}) {
-    if (!isOpen) {
-        return null;
-    }
-    return (
-        <div className="popup-overlay" onClick={onClose}>
-            <div className="popup-content" onClick={(e) => e.stopPropagation()}>
-                <button className="close-button" onClick={onClose}>X</button>
-                {mode === 'add' && <h2>Add New Item</h2>}
-                {mode === 'edit' && <h2>Edit Item</h2>}
-                {children}
+function Popup({isOpen, onClose, children}) {
+    return isOpen ? (
+            <div className="reusable-popup-container">
+                <div className="reusable-popup-background" onClick={onClose}>
+                    <div className="reusable-popup-content">
+                        {children}
+                    </div>
+                </div>
             </div>
-        </div>
-    );
+        ) :
+        null;
 }
 
 export default Popup;

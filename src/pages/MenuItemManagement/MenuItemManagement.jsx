@@ -48,7 +48,7 @@ function MenuItemManagement() {
     }
 
     return (
-        <div className={"menu-management-container"}>
+        <div className={"menu-item-management-container"}>
             <h2>Menu Item Management</h2>
             <Divider/>
             <div className={"button-container"}>

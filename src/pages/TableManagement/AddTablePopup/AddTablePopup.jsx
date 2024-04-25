@@ -33,8 +33,6 @@ function AddTablePopup({isOpen, onClose, onSubmit}) {
                                            onChange={handleChange} margin="dense"/>
                                 <TextField id="outlined-basic" label="Menu" variant="outlined"
                                            onChange={handleChange} margin="dense"/>
-                                <TextField id="outlined-basic" label="Description" variant="outlined"
-                                           onChange={handleChange} margin="dense"/>
                             </div>
                             <div className={"qr-code-container"}>
                                 <div className={"qr-code-box"}>
@@ -46,14 +44,12 @@ function AddTablePopup({isOpen, onClose, onSubmit}) {
                             </div>
                         </div>
                         <div className={"form-buttons"}>
-                            {/*<Button sx={{width: "120px"}} variant="contained" disableElevation*/}
-                            {/*>Generate QR</Button>*/}
                             <Button sx={{marginLeft: '20px', width: "120px"}} variant="contained" disableElevation
                             >Download QR</Button>
                             <Button sx={{marginLeft: '20px', width: "80px"}} variant="contained" disableElevation
-                                    onClick={onClose}>Close</Button>
+                                    onClick={onClose} color={"error"}>Close</Button>
                             <Button sx={{marginLeft: '20px', width: "80px"}} variant="contained" disableElevation
-                                    type="submit">Add</Button>
+                                    type="submit" color={"success"}>Add</Button>
                         </div>
                     </form>
                 </div>
