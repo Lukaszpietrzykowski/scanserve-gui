@@ -29,9 +29,6 @@ function MenuManagement() {
         setIsEditMode(isEditMode)
         if (isEditMode) {
             setFormData(menu)
-            console.log(categories)
-            console.log(menu.categoryIds)
-            console.log(categories.filter(category => menu.categoryIds.includes(category.id)))
             setSelectedCategories(categories.filter(category => menu.categoryIds.includes(category.id)))
         }
         setIsPopupOpen(true);
@@ -55,12 +52,13 @@ function MenuManagement() {
         setFormData({});
         setSelectedCategories([]);
         setIsEditMode(false);
+        setIsPopupOpen(false);
     }
 
     function handleSubmit(e) {
         e.preventDefault();
         if (isEditMode) {
-            // updateMenu()
+            updateMenu()
         } else {
             createMenu();
         }
@@ -87,6 +85,18 @@ function MenuManagement() {
         axios.delete(`http://localhost:8080/menus/${menuId}`)
             .then(() => {
                 console.log("removed")
+                getMenus();
+            })
+    }
+
+    function updateMenu() {
+        const data = {
+            ...formData,
+            ["categoryIds"]: selectedCategories.map(value => value.id)
+        }
+        axios.put("http://localhost:8080/menus", data)
+            .then(() => {
+                console.log("updated")
                 getMenus();
             })
     }
@@ -148,7 +158,7 @@ function MenuManagement() {
                                     sx={{'&:last-child td, &:last-child th': {border: 0}}}
                                 >
                                     <TableCell component="th" scope="row">
-                                        {index}
+                                        {index + 1}
                                     </TableCell>
                                     <TableCell align="center">{menu.name}</TableCell>
                                     <TableCell align="center">{menu.displayName}</TableCell>

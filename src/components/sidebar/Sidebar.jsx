@@ -3,6 +3,7 @@ import {List, ListItem, ListItemText} from "@mui/material";
 import {Link} from "react-router-dom";
 import fullLogo from "../../assets/logo_z_tekstem.png"
 import TableRestaurantOutlinedIcon from '@mui/icons-material/TableRestaurantOutlined';
+import PhoneIphoneIcon from '@mui/icons-material/PhoneIphone';
 
 function Sidebar({isSidebarOpen}) {
 
@@ -14,6 +15,14 @@ function Sidebar({isSidebarOpen}) {
             </div>
             <div className={"sidebar-content"}>
                 <List>
+                    <Link to={"/mobile"}>
+                        <div className={"list-item-wrapper"}>
+                            <ListItem>
+                                <PhoneIphoneIcon sx={{marginRight: "10px"}}/>
+                                <ListItemText>Mobile Preview</ListItemText>
+                            </ListItem>
+                        </div>
+                    </Link>
                     <Link to={"/"}>
                         <div className={"list-item-wrapper"}>
 

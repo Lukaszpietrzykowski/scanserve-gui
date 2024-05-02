@@ -14,6 +14,8 @@ import '@fontsource/roboto/700.css';
 import ScanServeMenu from "./pages/Menu/ScanServeMenu.jsx";
 import Orders from "./pages/Orders/Orders.jsx";
 import MenuManagement from "./pages/MenuManagement/MenuManagement.jsx";
+import MobileLayout from "./components/mobile/layout/MobileLayout.jsx";
+import WelcomePage from "./pages/Mobile/WelcomePage/WelcomePage.jsx";
 
 function App() {
 
@@ -45,7 +47,9 @@ function App() {
                     <Route path={"/menu"} element={<ScanServeMenu/>}/>
                     <Route path={"/orders"} element={<Orders/>}/>
                 </Route>
-                <Route path={"/mobile"}/>
+                <Route path={"/mobile"} element={<MobileLayout/>}>
+                    <Route path={"/mobile/welcome"} element={<WelcomePage/>}/>
+                </Route>
             </Routes>
         </ThemeProvider>
     )
