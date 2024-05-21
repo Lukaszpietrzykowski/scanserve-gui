@@ -15,7 +15,7 @@ function Sidebar({isSidebarOpen}) {
             </div>
             <div className={"sidebar-content"}>
                 <List>
-                    <Link to={"/mobile"}>
+                    <Link to={"/mobile/menu"}>
                         <div className={"list-item-wrapper"}>
                             <ListItem>
                                 <PhoneIphoneIcon sx={{marginRight: "10px"}}/>
@@ -40,14 +40,14 @@ function Sidebar({isSidebarOpen}) {
                             </ListItem>
                         </div>
                     </Link>
-                    <Link to={"/menu"}>
-                        <div className={"list-item-wrapper"}>
-                            <ListItem>
-                                <i className="bi bi-book icon"></i>
-                                <ListItemText>Menu Preview</ListItemText>
-                            </ListItem>
-                        </div>
-                    </Link>
+                    {/*<Link to={"/menu"}>*/}
+                    {/*    <div className={"list-item-wrapper"}>*/}
+                    {/*        <ListItem>*/}
+                    {/*            <i className="bi bi-book icon"></i>*/}
+                    {/*            <ListItemText>Menu Preview</ListItemText>*/}
+                    {/*        </ListItem>*/}
+                    {/*    </div>*/}
+                    {/*</Link>*/}
                     <Link to={"/menu-item-management"}>
                         <div className={"list-item-wrapper"}>
                             <ListItem>

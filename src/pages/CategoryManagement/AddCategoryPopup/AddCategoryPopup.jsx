@@ -12,7 +12,7 @@ function AddCategoryPopup({isOpen, onClose, onSubmit, isEditMode, categoryId}) {
 
     useEffect(() => {
         if (isEditMode && isOpen) {
-            axios.get(`http://localhost:8080/categories/${categoryId}`)
+            axios.get(`/categories/${categoryId}`)
                 .then(response => {
                     const categoryData = response.data;
                     setFormData({
@@ -46,12 +46,12 @@ function AddCategoryPopup({isOpen, onClose, onSubmit, isEditMode, categoryId}) {
     }
 
     function createCategory() {
-        axios.post("http://localhost:8080/categories", formData)
+        axios.post("/categories", formData)
             .then(onSubmit)
     }
 
     function editCategory() {
-        axios.put(`http://localhost:8080/categories`, formData)
+        axios.put(`/categories`, formData)
             .then(onSubmit)
     }
 

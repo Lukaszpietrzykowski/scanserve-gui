@@ -36,14 +36,14 @@ function MenuItemManagement() {
     };
 
     function getMenuItems() {
-        axios.get("http://localhost:8080/menu-items")
+        axios.get("/menu-items")
             .then((resp) => {
                 setMenuItems(resp.data)
             })
     }
 
     function removeMenuItem(menuItemId) {
-        axios.delete(`http://localhost:8080/menu-items/${menuItemId}`)
+        axios.delete(`/menu-items/${menuItemId}`)
             .then(getMenuItems)
     }
 

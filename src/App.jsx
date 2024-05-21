@@ -16,6 +16,8 @@ import Orders from "./pages/Orders/Orders.jsx";
 import MenuManagement from "./pages/MenuManagement/MenuManagement.jsx";
 import MobileLayout from "./components/mobile/layout/MobileLayout.jsx";
 import WelcomePage from "./pages/Mobile/WelcomePage/WelcomePage.jsx";
+import MenuItemPreview from "./pages/Mobile/MenuItemPreview/MenuItemPreview.jsx";
+import MobileOrders from "./pages/Mobile/Orders/MobileOrders.jsx";
 
 function App() {
 
@@ -38,17 +40,19 @@ function App() {
         <ThemeProvider theme={theme}>
             <Routes>
                 <Route path={"/"} element={<Layout/>}>
-                    <Route path={"/"} element={<Dashboard/>}/>
-                    <Route path={"/menu-item-management"} element={<MenuItemManagement/>}/>
-                    <Route path={"/menu-management"} element={<MenuManagement/>}/>
-                    <Route path={"/category-management"} element={<CategoryManagement/>}/>
-                    <Route path={"/qr-codes"} element={<QRCodes/>}/>
-                    <Route path={"/table-management"} element={<TableManagement/>}/>
-                    <Route path={"/menu"} element={<ScanServeMenu/>}/>
-                    <Route path={"/orders"} element={<Orders/>}/>
+                    <Route path={""} element={<Dashboard/>}/>
+                    <Route path={"menu-item-management"} element={<MenuItemManagement/>}/>
+                    <Route path={"menu-management"} element={<MenuManagement/>}/>
+                    <Route path={"category-management"} element={<CategoryManagement/>}/>
+                    <Route path={"qr-codes"} element={<QRCodes/>}/>
+                    <Route path={"table-management"} element={<TableManagement/>}/>
+                    <Route path={"menu"} element={<ScanServeMenu/>}/>
+                    <Route path={"orders"} element={<Orders/>}/>
                 </Route>
                 <Route path={"/mobile"} element={<MobileLayout/>}>
-                    <Route path={"/mobile/welcome"} element={<WelcomePage/>}/>
+                    <Route path={"menu"} element={<WelcomePage/>}/>
+                    <Route path={"item-preview/:menuItemId"} element={<MenuItemPreview/>}/>
+                    <Route path={"cart"} element={<MobileOrders/>}/>
                 </Route>
             </Routes>
         </ThemeProvider>

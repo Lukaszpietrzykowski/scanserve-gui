@@ -18,14 +18,14 @@ function CategoryManagement() {
     }, [])
 
     function getCategories() {
-        axios.get("http://localhost:8080/categories")
+        axios.get("/categories")
             .then(response => {
                 setCategories(response.data)
             })
     }
 
     function removeCategory(categoryId) {
-        axios.delete(`http://localhost:8080/categories/${categoryId}`)
+        axios.delete(`/categories/${categoryId}`)
             .then(() => getCategories())
     }
 

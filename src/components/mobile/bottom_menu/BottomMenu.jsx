@@ -1,13 +1,11 @@
 import React from 'react';
 import {BottomNavigation, BottomNavigationAction} from "@mui/material";
-import RestoreIcon from '@mui/icons-material/Restore';
-import FavoriteIcon from '@mui/icons-material/Favorite';
-import LocationOnIcon from '@mui/icons-material/LocationOn';
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import MenuBookIcon from '@mui/icons-material/MenuBook';
+import {Link} from "react-router-dom";
 
 function BottomMenu() {
     const [value, setValue] = React.useState(0);
-
-
     return (
         <BottomNavigation
             sx={{
@@ -25,9 +23,8 @@ function BottomMenu() {
                 setValue(newValue);
             }}
         >
-            <BottomNavigationAction label="Menu" icon={<RestoreIcon />}/>
-            <BottomNavigationAction label="Cart" icon={<FavoriteIcon/>}/>
-            <BottomNavigationAction label="Nearby" icon={<LocationOnIcon/>}/>
+            <BottomNavigationAction component={Link} to={"/mobile/menu"} label={"Menu"} icon={<MenuBookIcon/>}/>
+            <BottomNavigationAction component={Link} to={"/mobile/cart"} label="Cart" icon={<ShoppingCartIcon/>}/>
         </BottomNavigation>
     );
 }

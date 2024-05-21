@@ -57,7 +57,7 @@ function AddMenuItemPopup({isOpen, onClose, onSubmit, isEditMode, menuItem}) {
     };
 
     function getCategories() {
-        axios.get("http://localhost:8080/categories")
+        axios.get("/categories")
             .then(resp => {
                 const mappedCategory = resp.data.map(category => ({
                     id: category.id,
@@ -79,7 +79,7 @@ function AddMenuItemPopup({isOpen, onClose, onSubmit, isEditMode, menuItem}) {
             type: 'application/json'
         });
 
-        axios.post("http://localhost:8080/menu-items", {
+        axios.post("/menu-items", {
                 menuItem: blob,
                 image: formData.image
             },
@@ -104,7 +104,7 @@ function AddMenuItemPopup({isOpen, onClose, onSubmit, isEditMode, menuItem}) {
             type: 'application/json'
         });
 
-        axios.put("http://localhost:8080/menu-items", {
+        axios.put("/menu-items", {
                 menuItem: blob,
                 image: formData.image
             },

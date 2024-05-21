@@ -9,7 +9,7 @@ import Popup from "../../components/popup/Popup.jsx";
 function TableManagement() {
 
     const [isPopupOpen, setIsPopupOpen] = useState(false);
-    const [tables, setTables] = useState({});
+    const [tables, setTables] = useState([]);
     const [menus, setMenus] = useState([]);
     const [selectedMenu, setSelectedMenu] = useState()
     const [isLoading, setIsLoading] = useState(true);
@@ -17,30 +17,28 @@ function TableManagement() {
     const [isEditMode, setIsEditMode] = useState(false);
 
     useEffect(() => {
-        setIsLoading(true);
-        getTables();
         getMenus();
-        // setIsLoading(false);
+        getTables();
     }, []);
 
-    async function getTables() {
+    function getTables() {
         setIsLoading(true);
         try {
-            await axios.get("http://localhost:8080/tables")
+            axios.get("/tables")
                 .then(response => {
                     setTables(response.data)
-                    setIsLoading(false);
                 })
+            setIsLoading(false);
         } catch (error) {
             console.log(error);
             setIsLoading(false)
         }
     }
 
-    async function getMenus() {
+    function getMenus() {
         setIsLoading(true)
         try {
-            await axios.get("http://localhost:8080/menus")
+            axios.get("/menus")
                 .then(response => {
                     const mappedMenus = response.data.map(menu => ({
                         id: menu.id,
@@ -57,7 +55,7 @@ function TableManagement() {
 
     async function removeTable(tableId) {
         try {
-            await axios.delete(`http://localhost:8080/tables/${tableId}`)
+            await axios.delete(`/tables/${tableId}`)
                 .then(() => getTables());
         } catch (error) {
             console.log(error);
@@ -70,7 +68,7 @@ function TableManagement() {
                 ...formData,
                 ["menuId"]: selectedMenu.id,
             }
-            await axios.post("http://localhost:8080/tables", data)
+            await axios.post("/tables", data)
                 .then(() => getTables())
         } catch (error) {
             console.log(error)
@@ -83,7 +81,7 @@ function TableManagement() {
                 ...formData,
                 ["menuId"]: selectedMenu.id,
             }
-            await axios.put("http://localhost:8080/tables", data)
+            await axios.put("/tables", data)
                 .then(() => getTables())
         } catch (error) {
             console.log(error);
@@ -138,7 +136,7 @@ function TableManagement() {
                 {tables.map((table, index) => (
                     <div key={index + table.id} className={"table-item-container"}>
                         <div className={"table-item-info"}>
-                            <Chip sx={{height: 30, width: 80, fontSize: 14}} size="medium" label={table.name}
+                            <Chip sx={{height: 30, maxWidth: 200, fontSize: 14}} size="medium" label={table.name}
                                   variant="outlined"/>
                             <img style={{width: 60}} src={tableIco} alt={"table-ico"}/>
                         </div>
@@ -186,18 +184,22 @@ function TableManagement() {
                                     renderInput={(params) => <TextField {...params} label="Menu"/>}
                                 />
                             </div>
-                            <div className={"qr-code-container"}>
-                                <div className={"qr-code-box"}>
-                                    QR CODE
-                                </div>
-                                <div className={"qr-code-button"}>
+                            {isEditMode ? (
+                                <div className={"qr-code-container"}>
+                                    <div className={"qr-code-box"}>
+                                        <img src={"data:image/png;base64," + formData.qrCode}/>
+                                    </div>
+                                    <div className={"qr-code-button"}>
 
+                                    </div>
                                 </div>
-                            </div>
+                            ) : null}
                         </div>
                         <div className={"form-buttons"}>
-                            <Button sx={{marginLeft: '20px', width: "120px"}} variant="contained" disableElevation
-                            >Download QR</Button>
+                            {isEditMode ? (
+                                <Button sx={{marginLeft: '20px', width: "120px"}} variant="contained" disableElevation
+                                >Download QR</Button>
+                            ) : null}
                             <Button sx={{marginLeft: '20px', width: "80px"}} variant="contained" disableElevation
                                     onClick={() => handleClosePopup()}
                                     color={"error"}>Close</Button>

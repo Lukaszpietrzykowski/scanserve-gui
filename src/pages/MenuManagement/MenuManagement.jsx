@@ -77,12 +77,12 @@ function MenuManagement() {
             ["categoryIds"]: selectedCategories.map(value => value.id)
         }
         console.log(data)
-        axios.post("http://localhost:8080/menus", data)
+        axios.post("/menus", data)
             .then(() => console.log("added"))
     }
 
     function removeMenu(menuId) {
-        axios.delete(`http://localhost:8080/menus/${menuId}`)
+        axios.delete(`/menus/${menuId}`)
             .then(() => {
                 console.log("removed")
                 getMenus();
@@ -94,7 +94,7 @@ function MenuManagement() {
             ...formData,
             ["categoryIds"]: selectedCategories.map(value => value.id)
         }
-        axios.put("http://localhost:8080/menus", data)
+        axios.put("/menus", data)
             .then(() => {
                 console.log("updated")
                 getMenus();
@@ -104,7 +104,7 @@ function MenuManagement() {
     async function getMenus() {
         setIsLoading(true)
         try {
-            const resopnse = await axios.get("http://localhost:8080/menus");
+            const resopnse = await axios.get("/menus");
             const result = await resopnse.data;
             setMenus(result);
             setIsLoading(false);
@@ -116,7 +116,7 @@ function MenuManagement() {
 
     async function getCategories() {
         try {
-            const response = await axios.get("http://localhost:8080/categories");
+            const response = await axios.get("/categories");
             const result = await response.data;
             const mappedCategories = await result.map(category => ({
                 id: category.id,
@@ -163,12 +163,6 @@ function MenuManagement() {
                                     <TableCell align="center">{menu.name}</TableCell>
                                     <TableCell align="center">{menu.displayName}</TableCell>
                                     <TableCell align="center">{menu.categoryIds.length}</TableCell>
-                                    {/*<TableCell align="center">*/}
-                                    {/*    {category.active*/}
-                                    {/*        ? <CheckIcon fontSize={"large"} color={"success"}/>*/}
-                                    {/*        : <CloseIcon fontSize={"large"} color={"error"}/>}*/}
-                                    {/*</TableCell>*/}
-
                                     <TableCell align="center" sx={{width: 250}}>
                                         <Button sx={{marginLeft: '10px', width: "80px"}} variant="contained"
                                                 color={"success"}
