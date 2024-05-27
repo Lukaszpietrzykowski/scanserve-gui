@@ -26,13 +26,15 @@
     flex: 0 0 auto;
     margin-right: 20px;
     margin-bottom: 8px;
-    width: 100px;
+    width: 110px;
+    min-width: 100px;
     height: 60px;
     border: 1px solid #ccc;
     background-color: white;
     border-radius: 16px;
     align-items: center;
     justify-content: center;
+    padding: 4px;
 }
 
 .selected {
@@ -59,7 +61,7 @@
 
 .mobile-menu-item {
     display: flex;
-    height: 220px;
+    height: 240px;
     border: 1px solid #ccc;
     background-color: white;
     border-radius: 16px;
@@ -74,6 +76,11 @@
     flex-direction: column;
     width: 100%;
     align-items: center;
+
+    span {
+        margin-top: 4px;
+        margin-bottom: 4px;
+    }
 }
 
 .mobile-menu-item-image {

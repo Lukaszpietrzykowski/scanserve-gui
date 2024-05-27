@@ -11,8 +11,8 @@ function MenuItemPreview() {
     let {menuItemId} = useParams();
     const [isLoading, setIsLoading] = useState(true)
     const [menuItemInfo, setMenuItemInfo] = useState({})
-    const [amount, setAmount] = React.useState('');
-    const {addItemToBasket, basketItems} = useContext(BasketContext);
+    const [amount, setAmount] = React.useState(1);
+    const {addItemToBasket} = useContext(BasketContext);
     const navigate = useNavigate()
 
     const handleChange = (event) => {
@@ -43,7 +43,7 @@ function MenuItemPreview() {
                 <Link to={"/mobile/menu"}>
                     <ArrowBackIosIcon style={{fontSize: 30, marginLeft: 13, position: "absolute", left: 0, top: 0}}/>
                 </Link>
-                <span className={"details-span"}><b>Details</b></span>
+                <span className={"details-span"}><b>Szczegóły</b></span>
             </div>
             <div className={"menu-item-info-section"}>
                 <img src={"data:image/png;base64," + menuItemInfo.image} alt={"image"}/>
@@ -58,7 +58,7 @@ function MenuItemPreview() {
                     </div>
 
                     <FormControl size="small">
-                        <InputLabel id="amount-select">Amount</InputLabel>
+                        <InputLabel id="amount-select">Ilość</InputLabel>
                         <Select
                             style={{textDecorationColor: "black", width: 100}}
                             labelId="amount-select"
@@ -67,7 +67,6 @@ function MenuItemPreview() {
                             label="Amount"
                             onChange={handleChange}
                         >
-                            <MenuItem value={0}>0</MenuItem>
                             <MenuItem value={1}>1</MenuItem>
                             <MenuItem value={2}>2</MenuItem>
                             <MenuItem value={3}>3</MenuItem>
@@ -77,7 +76,7 @@ function MenuItemPreview() {
                     </FormControl>
                 </div>
                 <div className={"description-container"}>
-                    <p className={"menu-item-description-p"}><b>Description</b></p>
+                    <p className={"menu-item-description-p"}><b>Opis</b></p>
                     <p className={"menu-item-description-details"}>
                         {menuItemInfo.description}
                     </p>
@@ -90,7 +89,7 @@ function MenuItemPreview() {
                         onClick={() => {
                             addItemToBasket({menuItemInfo, amount: amount})
                             navigate("/mobile/menu")
-                        }}>Add</Button>
+                        }}>Dodaj</Button>
             </div>
         </div>
     ) : null;

@@ -56,7 +56,7 @@ function WelcomePage() {
                                      src={"data:image/png;base64," + menuItem.image} alt={"image"}/>
                                 <div className={"mobile-menu-item-info"}>
                                     <span><b>{menuItem.name}</b></span>
-                                    <span>{menuItem.price} zł</span>
+                                    <span><b>{menuItem.price} zł</b></span>
                                 </div>
                             </div>
                         </Link>

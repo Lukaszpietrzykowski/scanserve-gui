@@ -11,6 +11,7 @@ function MobileOrders() {
     const [total, setTotal] = useState(0.0)
     useEffect(() => {
         calculateTotal();
+        console.log(basketItems)
 
     }, [basketItems]);
 
@@ -28,7 +29,7 @@ function MobileOrders() {
 
     function calculateTotal() {
         setTotal(
-            basketItems.reduce((sum, basketItem) => sum + basketItem.menuItemInfo.price, 0)
+            basketItems.reduce((sum, basketItem) => sum + basketItem.menuItemInfo.price * basketItem.amount, 0)
         )
     }
 
@@ -38,10 +39,10 @@ function MobileOrders() {
                 {basketItems.map((item, index) => (
                     <div key={'key' + item.menuItemInfo.id + index} className={"mobile-order-item"}>
                         <div className={"order-item-img"}>
-
+                            <img src={"data:image/png;base64, " + item.menuItemInfo.image} alt={"image"}/>
                         </div>
                         <div className={"order-item-info"}>
-                            <div className={"order-item-info-inner-container"}>
+                        <div className={"order-item-info-inner-container"}>
                                 <span><b>Cheese Burger {item.menuItemInfo.name}</b></span>
                                 <Button className={"order-cancel-icon"} sx={{height: "30px"}} variant="contained"
                                         onClick={() => removeItemFromBasket(item.menuItemInfo.id)}
@@ -52,7 +53,7 @@ function MobileOrders() {
                             </div>
                             <div className={"order-item-info-inner-container"}>
                                 <span><b>{item.menuItemInfo.price} zł</b></span>
-                                <Chip sx={{fontSize: 12}} label={"Pieces: " + item.amount}/>
+                                <Chip sx={{fontSize: 12}} label={"Sztuk: " + item.amount}/>
                             </div>
                         </div>
                     </div>
@@ -60,12 +61,12 @@ function MobileOrders() {
             </div>
             <div className={"summary-section-container"}>
                 <div className={"total-amount-container"}>
-                    <span><b>Total</b></span>
+                    <span><b>Suma</b></span>
                     <span><b>{total} zł</b></span>
                 </div>
                 <Button sx={{marginTop: 2, fontSize: 18}} variant="contained" disableElevation
                         onClick={() => createOrder()}>
-                    <b>Order</b>
+                    <b>Zamów</b>
                 </Button>
             </div>
         </div>

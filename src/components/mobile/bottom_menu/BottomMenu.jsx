@@ -24,7 +24,7 @@ function BottomMenu() {
             }}
         >
             <BottomNavigationAction component={Link} to={"/mobile/menu"} label={"Menu"} icon={<MenuBookIcon/>}/>
-            <BottomNavigationAction component={Link} to={"/mobile/cart"} label="Cart" icon={<ShoppingCartIcon/>}/>
+            <BottomNavigationAction component={Link} to={"/mobile/cart"} label="Koszyk" icon={<ShoppingCartIcon/>}/>
         </BottomNavigation>
     );
 }

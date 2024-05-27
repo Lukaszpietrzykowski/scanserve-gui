@@ -78,7 +78,7 @@ function Orders() {
                                     <TableCell align="center">{order.status}</TableCell>
 
                                     <TableCell align="center" sx={{width: 250}}>
-                                        <Button sx={{marginLeft: '10px', width: "140px", fontSize: "10px"}}
+                                        <Button sx={{marginLeft: '10px', width: "170px", fontSize: "14px"}}
                                                 variant="contained"
                                                 color={"success"}
                                                 onClick={() => updateOrderStatus(order)}

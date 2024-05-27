@@ -196,10 +196,6 @@ function TableManagement() {
                             ) : null}
                         </div>
                         <div className={"form-buttons"}>
-                            {isEditMode ? (
-                                <Button sx={{marginLeft: '20px', width: "120px"}} variant="contained" disableElevation
-                                >Download QR</Button>
-                            ) : null}
                             <Button sx={{marginLeft: '20px', width: "80px"}} variant="contained" disableElevation
                                     onClick={() => handleClosePopup()}
                                     color={"error"}>Close</Button>

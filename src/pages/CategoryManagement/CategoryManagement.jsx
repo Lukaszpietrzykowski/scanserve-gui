@@ -65,17 +65,17 @@ function CategoryManagement() {
                             </TableRow>
                         </TableHead>
                         <TableBody>
-                            {categories.map((category) => (
+                            {categories.map((category, index) => (
                                 <TableRow
                                     key={category.id}
                                     sx={{'&:last-child td, &:last-child th': {border: 0}}}
                                 >
                                     <TableCell component="th" scope="row">
-                                        1
+                                        {index + 1}
                                     </TableCell>
                                     <TableCell align="center">{category.categoryName}</TableCell>
                                     <TableCell align="center">{category.displayName}</TableCell>
-                                    <TableCell align="center">100</TableCell>
+                                    <TableCell align="center">{category.itemsInCategory}</TableCell>
                                     <TableCell align="center">
                                         {category.active
                                             ? <CheckIcon fontSize={"large"} color={"success"}/>
