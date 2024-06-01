@@ -1,9 +1,11 @@
 import React, {useEffect, useState} from 'react';
 import "./WelcomePage.css";
 import axios from "axios";
-import {Link} from "react-router-dom";
+import {Link, useParams} from "react-router-dom";
 
 function WelcomePage() {
+
+    let {tableId} = useParams();
     const [isLoading, setIsLoading] = useState(true);
     const [tableData, setTableData] = useState({});
     const [selectedCategory, setSelectedCategory] = useState({});
@@ -19,7 +21,7 @@ function WelcomePage() {
     async function getTableById() {
         try {
             setIsLoading(true);
-            await axios.get("/tables/2")
+            await axios.get(`/tables/${tableId}`)
                 .then((response) => {
                     setTableData(response.data)
                     setSelectedCategory(response.data.menu.categories[0])
@@ -50,7 +52,7 @@ function WelcomePage() {
                 <div className={"mobile-menu-items-container"}>
                     {selectedCategory.menuItems.map((menuItem, index) => (
                         <Link key={menuItem.name + index}
-                              to={{pathname: "/mobile/item-preview/" + menuItem.menuItemId}}>
+                              to={{pathname: `/mobile/${tableId}/item-preview/` + menuItem.menuItemId}}>
                             <div className={"mobile-menu-item"}>
                                 <img className={"mobile-menu-item-image"}
                                      src={"data:image/png;base64," + menuItem.image} alt={"image"}/>

@@ -2,9 +2,11 @@ import React from 'react';
 import {BottomNavigation, BottomNavigationAction} from "@mui/material";
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import MenuBookIcon from '@mui/icons-material/MenuBook';
-import {Link} from "react-router-dom";
+import {Link, useParams} from "react-router-dom";
 
 function BottomMenu() {
+
+    let {tableId} = useParams();
     const [value, setValue] = React.useState(0);
     return (
         <BottomNavigation
@@ -23,8 +25,8 @@ function BottomMenu() {
                 setValue(newValue);
             }}
         >
-            <BottomNavigationAction component={Link} to={"/mobile/menu"} label={"Menu"} icon={<MenuBookIcon/>}/>
-            <BottomNavigationAction component={Link} to={"/mobile/cart"} label="Koszyk" icon={<ShoppingCartIcon/>}/>
+            <BottomNavigationAction component={Link} to={`/mobile/${tableId}/menu`} label={"Menu"} icon={<MenuBookIcon/>}/>
+            <BottomNavigationAction component={Link} to={`/mobile/${tableId}/cart`} label="Koszyk" icon={<ShoppingCartIcon/>}/>
         </BottomNavigation>
     );
 }

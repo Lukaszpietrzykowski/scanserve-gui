@@ -8,7 +8,7 @@ import {BasketContext} from "../../../context/Basket/BasketContext.jsx";
 
 function MenuItemPreview() {
 
-    let {menuItemId} = useParams();
+    let {menuItemId, tableId} = useParams();
     const [isLoading, setIsLoading] = useState(true)
     const [menuItemInfo, setMenuItemInfo] = useState({})
     const [amount, setAmount] = React.useState(1);
@@ -40,7 +40,7 @@ function MenuItemPreview() {
     return !isLoading ? (
         <div className={"menu-item-preview-container"}>
             <div className={"item-preview-top-bar"}>
-                <Link to={"/mobile/menu"}>
+                <Link to={`/mobile/${tableId}/menu`}>
                     <ArrowBackIosIcon style={{fontSize: 30, marginLeft: 13, position: "absolute", left: 0, top: 0}}/>
                 </Link>
                 <span className={"details-span"}><b>Szczegóły</b></span>
@@ -88,7 +88,7 @@ function MenuItemPreview() {
                         disableElevation
                         onClick={() => {
                             addItemToBasket({menuItemInfo, amount: amount})
-                            navigate("/mobile/menu")
+                            navigate(`/mobile/${tableId}/menu`)
                         }}>Dodaj</Button>
             </div>
         </div>

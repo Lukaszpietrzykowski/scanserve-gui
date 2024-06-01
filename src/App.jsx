@@ -49,7 +49,7 @@ function App() {
                     <Route path={"menu"} element={<ScanServeMenu/>}/>
                     <Route path={"orders"} element={<Orders/>}/>
                 </Route>
-                <Route path={"/mobile"} element={<MobileLayout/>}>
+                <Route path={"/mobile/:tableId/"} element={<MobileLayout/>}>
                     <Route path={"menu"} element={<WelcomePage/>}/>
                     <Route path={"item-preview/:menuItemId"} element={<MenuItemPreview/>}/>
                     <Route path={"cart"} element={<MobileOrders/>}/>
