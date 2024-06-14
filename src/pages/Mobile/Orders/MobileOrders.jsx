@@ -42,7 +42,7 @@ function MobileOrders() {
                             <img src={"data:image/png;base64, " + item.menuItemInfo.image} alt={"image"}/>
                         </div>
                         <div className={"order-item-info"}>
-                        <div className={"order-item-info-inner-container"}>
+                            <div className={"order-item-info-inner-container"}>
                                 <span><b>Cheese Burger {item.menuItemInfo.name}</b></span>
                                 <Button className={"order-cancel-icon"} sx={{height: "30px"}} variant="contained"
                                         onClick={() => removeItemFromBasket(item.menuItemInfo.id)}

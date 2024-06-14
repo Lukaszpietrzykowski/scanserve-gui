@@ -84,7 +84,7 @@ function MenuItemPreview() {
             </div>
             <div className={"price-container"}>
                 <p className={"price-tag"}><b>{menuItemInfo.price} zł</b></p>
-                <Button sx={{width: 300, height: 40, margin: 1, fontSize: 14}} variant="contained"
+                <Button sx={{width: 280, height: 40, margin: 1, fontSize: 14}} variant="contained"
                         disableElevation
                         onClick={() => {
                             addItemToBasket({menuItemInfo, amount: amount})

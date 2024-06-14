@@ -74,7 +74,9 @@
     justify-content: space-around;
 }
 .price-tag {
-    font-size: 20px;
+    width: 50px;
+    font-size: 18px;
+    margin-right: 8px;
 }
 
 .menu-item-name-text-container {
